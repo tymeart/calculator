@@ -1,0 +1,88 @@
+body {
+  background-color: #3C3457;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.keypad-container {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display {
+  background: rgba(0, 0, 0, 0.35);
+  color: #C8D6C7;
+  font-family: sans-serif;
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#calculation {
+  padding: 30px;
+  font-size: 1.5em;
+}
+
+#result {
+  padding: 20px;
+  font-size: 2.5em;
+}
+
+.row {
+  display: flex;
+}
+
+.btn {
+  color: #D6E5D5;
+  font-size: 2.3em;
+  font-family: sans-serif;
+  text-align: center;
+  width: 60px;
+  padding: 5px;
+  margin: 3px;
+}
+.btn-function {
+  color: #80EC75;
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .keypad-container {
+    width: 100vw;
+    height: 75vh;
+    align-items: flex-start;
+    order: 2;
+    padding-top: 25px;
+  }
+
+  .display {
+    width: 100vw;
+    height: 30vh;
+    flex-direction: row;
+    justify-content: space-around;
+    order: 1;
+  }
+
+  #calculation {
+    font-size: 1.2em;
+    padding: 10px;
+    align-self: flex-start;
+  }
+
+  #result {
+    padding: 10px;
+    align-self: flex-end;
+  }
+}
