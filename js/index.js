@@ -8,9 +8,9 @@ for (var i = 0; i < buttons.length; i++) {
     var btnNum = this.getAttribute("data-num");
     var btnOp = this.getAttribute("data-operation");
     if (!btnOp) {
-      calculation.innerText += btnNum;
+      calculation.appendChild(document.createTextNode(btnNum + ' '));
     } else if (!btnNum) {
-      calculation.innerText += btnOp;
+      calculation.appendChild(document.createTextNode(btnOp + ' '));
     }
   })
 }
