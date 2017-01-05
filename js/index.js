@@ -3,7 +3,7 @@
 var buttons = document.querySelectorAll('.btn');
 var calculation = document.getElementById('calculation');
 
-function removeTransition(e) {
+function removeTransition() {
   this.classList.remove('clicked');
 }
 
