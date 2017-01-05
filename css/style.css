@@ -60,9 +60,16 @@ body {
   text-align: center;
   width: 60px;
   padding: 5px;
-  margin: 3px; }
+  margin: 3px;
+  -webkit-transition: background-color 0.4s;
+  transition: background-color 0.4s; }
   .btn-function {
     color: #80EC75; }
+  .btn:hover {
+    cursor: pointer; }
+
+.clicked {
+  background-color: rgba(0, 0, 0, 0.35); }
 
 @media screen and (max-width: 650px) {
   .container {

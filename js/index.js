@@ -3,8 +3,15 @@
 var buttons = document.querySelectorAll('.btn');
 var calculation = document.getElementById('calculation');
 
+function removeTransition(e) {
+  this.classList.remove('clicked');
+}
+
 for (var i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener('click', function() {
+    this.classList.add('clicked');
+    this.addEventListener('transitionend', removeTransition);
+
     var btnNum = this.getAttribute("data-num");
     var btnOp = this.getAttribute("data-operation");
 
@@ -28,4 +35,8 @@ for (var i = 0; i < buttons.length; i++) {
 
 // get btn background color to change when clicked
 
-// get calculation div to clear when AC is clicked
+// if >= 2 numbers clicked consecutively, put space after the last number
+
+// to get rest of function buttons to work, need to keep track of previous numbers?
+
+// refactor loop by using forEach?

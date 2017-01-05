@@ -74,12 +74,21 @@ body {
   width: 60px;
   padding: 5px;
   margin: 3px;
+  -webkit-transition: background-color 0.4s;
+  transition: background-color 0.4s;
 
   &-function {
     color: $bright-green;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
+.clicked {
+  background-color: $transparent-black;
+}
 
 @media screen and (max-width: 650px) {
   .container {
