@@ -7,11 +7,22 @@ for (var i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener('click', function() {
     var btnNum = this.getAttribute("data-num");
     var btnOp = this.getAttribute("data-operation");
-    if (!btnOp) {
+
+    if (btnNum) {
       calculation.appendChild(document.createTextNode(btnNum + ' '));
-    } else if (!btnNum) {
-      calculation.appendChild(document.createTextNode(btnOp + ' '));
     }
+
+    if (btnOp) {
+      if (btnOp === "ac") {
+        while (calculation.firstChild) {
+          calculation.removeChild(calculation.firstChild);
+        }
+      } else {
+        calculation.appendChild(document.createTextNode(btnOp + ' '));
+      }
+    }
+
+
   })
 }
 
