@@ -27,9 +27,20 @@ for (var i = 0; i < buttons.length; i++) {
         calculation.appendChild(document.createTextNode(' ' + btnOp + ' '));
       }
     }
+
+    var prevVal = calculation.lastChild;
+    console.log(typeof prevVal); // object!
+
+    // if (typeof prevVal === 'number') {
+    //   console.log("prev entry was a number");
+    // } else {
+    //   console.log("prev entry was an operation");
+    // }
+
   });
 }
 
-// if >= 2 numbers clicked consecutively, put space after the last number
 
 // to get rest of function buttons to work, need to keep track of previous numbers?
+// if prev button clicked was a number, apply CE/%/./plusmin to it
+// what if >=2 operation buttons clicked consecutively?
