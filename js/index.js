@@ -1,4 +1,3 @@
-// on click, numbers & operations appended to calculation div via data attr
 
 var buttons = document.querySelectorAll('.btn');
 var calculation = document.getElementById('calculation');
@@ -16,7 +15,7 @@ for (var i = 0; i < buttons.length; i++) {
     var btnOp = this.getAttribute("data-operation");
 
     if (btnNum) {
-      calculation.appendChild(document.createTextNode(btnNum + ' '));
+      calculation.appendChild(document.createTextNode(btnNum));
     }
 
     if (btnOp) {
@@ -25,18 +24,12 @@ for (var i = 0; i < buttons.length; i++) {
           calculation.removeChild(calculation.firstChild);
         }
       } else {
-        calculation.appendChild(document.createTextNode(btnOp + ' '));
+        calculation.appendChild(document.createTextNode(' ' + btnOp + ' '));
       }
     }
-
-
-  })
+  });
 }
-
-// get btn background color to change when clicked
 
 // if >= 2 numbers clicked consecutively, put space after the last number
 
 // to get rest of function buttons to work, need to keep track of previous numbers?
-
-// refactor loop by using forEach?
