@@ -11,10 +11,18 @@ function removeTransition() {
   this.classList.remove('clicked');
 }
 
-function update(value) {
-  input.push(value);
-  total = input.join('');
-  calculation.textContent = total;
+function update(buttonValue) {
+  input.push(buttonValue);
+  input.map(function(clickedButton) {
+    // for every number button that was clicked, add to total string
+    if (clickedButton !== NaN && numbers.indexOf(parseInt(clickedButton)) > -1) {
+      total += clickedButton;
+    }
+    // for every operator button that was clicked, add to total string with spaces around it
+    if (operators.indexOf(clickedButton) > -1) {
+      
+    }
+  });
 }
 
 for (var i = 0; i < buttons.length; i++) {
