@@ -4,6 +4,7 @@ var calculation = document.getElementById('calculation');
 var result = document.getElementById('result');
 var input = [];
 var total;
+var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function removeTransition() {
   this.classList.remove('clicked');
@@ -14,26 +15,27 @@ for (var i = 0; i < buttons.length; i++) {
     this.classList.add('clicked');
     this.addEventListener('transitionend', removeTransition);
 
-    var btnNum = this.getAttribute("data-num");
-    var btnOp = this.getAttribute("data-operation");
+    // get button id
+    var btnVal = this.id;
 
-    if (btnNum) {
-      input.push(btnNum);
+    // if a number is clicked
+    if (btnVal !== NaN && numbers.indexOf(parseInt(btnVal)) > -1) {
+      input.push(btnVal);
       total = input.join('');
       calculation.textContent = total;
     }
 
-    if (btnOp) {
-      if (btnOp === "ac") {
-        while (calculation.firstChild) {
-          calculation.removeChild(calculation.firstChild);
-        }
-      } else if (btnOp === "=") {
-        // result.innerHTML();
-      } else {
-        calculation.appendChild(document.createTextNode(' ' + btnOp + ' '));
-      }
-    }
+    // if (btnOp) {
+    //   if (btnOp === "ac") {
+    //     while (calculation.firstChild) {
+    //       calculation.removeChild(calculation.firstChild);
+    //     }
+    //   } else if (btnOp === "=") {
+    //     // result.innerHTML();
+    //   } else {
+    //     calculation.appendChild(document.createTextNode(' ' + btnOp + ' '));
+    //   }
+    // }
 
   });
 
