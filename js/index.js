@@ -5,9 +5,16 @@ var result = document.getElementById('result');
 var input = [];
 var total;
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var operators = ["x", "÷", "+", "-"];
 
 function removeTransition() {
   this.classList.remove('clicked');
+}
+
+function update(value) {
+  input.push(value);
+  total = input.join('');
+  calculation.textContent = total;
 }
 
 for (var i = 0; i < buttons.length; i++) {
@@ -20,22 +27,14 @@ for (var i = 0; i < buttons.length; i++) {
 
     // if a number is clicked
     if (btnVal !== NaN && numbers.indexOf(parseInt(btnVal)) > -1) {
-      input.push(btnVal);
-      total = input.join('');
+      update(btnVal);
       calculation.textContent = total;
     }
-
-    // if (btnOp) {
-    //   if (btnOp === "ac") {
-    //     while (calculation.firstChild) {
-    //       calculation.removeChild(calculation.firstChild);
-    //     }
-    //   } else if (btnOp === "=") {
-    //     // result.innerHTML();
-    //   } else {
-    //     calculation.appendChild(document.createTextNode(' ' + btnOp + ' '));
-    //   }
-    // }
+    // if an operator is clicked
+    else if (operators.indexOf(btnVal) > -1) {
+      update(btnVal);
+      calculation.textContent = total;
+    }
 
   });
 
