@@ -13,16 +13,7 @@ function removeTransition() {
 
 function update(buttonValue) {
   input.push(buttonValue);
-  input.map(function(clickedButton) {
-    // for every number button that was clicked, add to total string
-    if (clickedButton !== NaN && numbers.indexOf(parseInt(clickedButton)) > -1) {
-      total += clickedButton;
-    }
-    // for every operator button that was clicked, add to total string with spaces around it
-    if (operators.indexOf(clickedButton) > -1) {
-      
-    }
-  });
+  total = input.join('');
 }
 
 for (var i = 0; i < buttons.length; i++) {
@@ -33,8 +24,20 @@ for (var i = 0; i < buttons.length; i++) {
     // get button id
     var btnVal = this.id;
 
+    // if AC is clicked
+    if (btnVal === 'ac') {
+      input = [];
+      total = input.join('');
+      calculation.textContent = total;
+    }
+    // if CE is clicked
+    else if (btnVal === 'ce') {
+      input.pop();
+      total = input.join('');
+      calculation.textContent = total;
+    }
     // if a number is clicked
-    if (btnVal !== NaN && numbers.indexOf(parseInt(btnVal)) > -1) {
+    else if (btnVal !== NaN && numbers.indexOf(parseInt(btnVal)) > -1) {
       update(btnVal);
       calculation.textContent = total;
     }
@@ -49,8 +52,6 @@ for (var i = 0; i < buttons.length; i++) {
 }
 
 
-// to get rest of function buttons to work, need to keep track of previous numbers?
-// if prev button clicked was a number, apply CE/%/plusmin to it
 // but what if the operation button is clicked before the number is clicked?
   // e.g. +/- 20 is the same as 20 +/-
   // but % 80 doesn't work, 80 % does
