@@ -16,24 +16,29 @@ function update(buttonValue) {
   total = input.join('');
 }
 
-// maybe don't eval total and have this function take in a string
 function truncate(num) {
-  // if all the digits after decimal are the same number
   var str = num.toString();
-  if (str.indexOf('.') !== -1) {
-    var numAfterDecimalPoint = str.indexOf('.')+1;
-    for (var i = numAfterDecimalPoint + 1; i < str.length; i++) {
-      if (str[i] === numAfterDecimalPoint) {
+  var counter = 0;
 
+  // if there's a decimal and all the digits after the decimal are the same
+  if (str.indexOf('.') !== -1) {
+    var numAfterDecimalPoint = str[str.indexOf('.') + 1];
+    // counts how many digits after decimal are the same as the one directly after the decimal
+    for (var i = str.indexOf('.')+1; i < str.length; i++) {
+      if (str[i] === numAfterDecimalPoint) {
+        counter++;
       }
     }
+    if (counter === (str.length - str.indexOf('.') - 1)) {
+      return num.toFixed(5);
+    } else {
+      // not all the digits after the decimal are the same
+      return str;
+    }
+  } else {
+    // there's no decimal
+    return str;
   }
-  // apply toFixed
-  // if after applying toFixed there's 2 zeroes after decimal point, get rid of them
-    // var roundedNum = num.toFixed(2);
-    // if (roundedNum.toString().indexOf('.00') !== -1) {
-
-  // }
 }
 
 for (var i = 0; i < buttons.length; i++) {
