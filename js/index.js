@@ -16,8 +16,24 @@ function update(buttonValue) {
   total = input.join('');
 }
 
-function truncate(string) {
+// maybe don't eval total and have this function take in a string
+function truncate(num) {
+  // if all the digits after decimal are the same number
+  var str = num.toString();
+  if (str.indexOf('.') !== -1) {
+    var numAfterDecimalPoint = str.indexOf('.')+1;
+    for (var i = numAfterDecimalPoint + 1; i < str.length; i++) {
+      if (str[i] === numAfterDecimalPoint) {
 
+      }
+    }
+  }
+  // apply toFixed
+  // if after applying toFixed there's 2 zeroes after decimal point, get rid of them
+    // var roundedNum = num.toFixed(2);
+    // if (roundedNum.toString().indexOf('.00') !== -1) {
+
+  // }
 }
 
 for (var i = 0; i < buttons.length; i++) {
@@ -48,12 +64,12 @@ for (var i = 0; i < buttons.length; i++) {
       result.textContent = truncate(total);
     }
     // if a number is clicked
-    else if (btnVal !== NaN && numbers.indexOf(parseInt(btnVal)) > -1) {
+    else if (btnVal !== NaN && numbers.indexOf(parseInt(btnVal)) !== -1) {
       update(btnVal);
       calculation.textContent = total;
     }
     // if an operator is clicked
-    else if (operators.indexOf(btnVal) > -1) {
+    else if (operators.indexOf(btnVal) !== -1) {
       update(btnVal);
       calculation.textContent = total;
     }
@@ -66,7 +82,7 @@ for (var i = 0; i < buttons.length; i++) {
 // but what if the operation button is clicked before the number is clicked?
   // e.g. +/- 20 is the same as 20 +/-
   // but % 80 doesn't work, 80 % does
-// what if >=2 operation buttons clicked consecutively?
+// what if >=2 operation buttons clicked consecutively? what happens when you clicked = after CE and last entry was an operator?
 
 // truncate repeating decimals: toFixed or ?
 // change divide and multiply to / and * when evaluating instead?
