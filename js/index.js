@@ -5,7 +5,7 @@ var result = document.getElementById('result');
 var input = [];
 var total;
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var operators = ["*", "/", "+", "-"];
+var operators = ["*", "/", "+", "-", "."];
 
 function removeTransition() {
   this.classList.remove('clicked');
@@ -64,7 +64,7 @@ for (var i = 0; i < buttons.length; i++) {
       result.textContent = '';
     }
     //if = is clicked
-    else if (btnVal === "=") {
+    else if (btnVal === '=') {
       total = eval(input.join(''));
       result.textContent = total;
     }
@@ -87,8 +87,7 @@ for (var i = 0; i < buttons.length; i++) {
 // but what if the operation button is clicked before the number is clicked?
   // e.g. +/- 20 is the same as 20 +/-
   // but % 80 doesn't work, 80 % does
-// what if >=2 operation buttons clicked consecutively? what happens when you clicked = after CE and last entry was an operator?
-
+  
 // change divide and multiply to / and * when evaluating instead?
 
 // change display css on calculation & result so they're in fixed positions
