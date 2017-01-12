@@ -66,7 +66,7 @@ for (var i = 0; i < buttons.length; i++) {
     //if = is clicked
     else if (btnVal === "=") {
       total = eval(input.join(''));
-      result.textContent = truncate(total);
+      result.textContent = total;
     }
     // if a number is clicked
     else if (btnVal !== NaN && numbers.indexOf(parseInt(btnVal)) !== -1) {
@@ -89,7 +89,6 @@ for (var i = 0; i < buttons.length; i++) {
   // but % 80 doesn't work, 80 % does
 // what if >=2 operation buttons clicked consecutively? what happens when you clicked = after CE and last entry was an operator?
 
-// truncate repeating decimals: toFixed or ?
 // change divide and multiply to / and * when evaluating instead?
 
 // change display css on calculation & result so they're in fixed positions
