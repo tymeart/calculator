@@ -113,27 +113,22 @@ body {
   .display {
     width: 100vw;
     height: 30vh;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    box-sizing: border-box;
+    position: relative;
   }
 
   #calculation {
     font-size: 1.2em;
     padding: 10px;
-    -ms-flex-item-align: start;
-        align-self: flex-start;
+    position: absolute;
+    top: 5px;
+    left: 0;
   }
 
   #result {
     padding: 10px;
-    -ms-flex-item-align: end;
-        align-self: flex-end;
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 }
