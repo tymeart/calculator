@@ -92,7 +92,6 @@ body {
   .display {
     width: 100vw;
     height: 30vh;
-    box-sizing: border-box;
     position: relative; }
 
   #calculation {
@@ -106,6 +105,6 @@ body {
     padding: 10px;
     position: absolute;
     bottom: 0;
-    right: 0; } }
+    left: 0; } }
 
 /*# sourceMappingURL=style.css.map */
