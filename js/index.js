@@ -30,7 +30,7 @@ function truncate(num) {
       }
     }
     if (counter === (str.length - str.indexOf('.') - 1)) {
-      return num.toFixed(5);
+      return num.toFixed(10);
     } else {
       // not all the digits after the decimal are the same
       return str;
@@ -67,6 +67,7 @@ for (var i = 0; i < buttons.length; i++) {
     else if (btnVal === '=') {
       total = eval(input.join(''));
       result.textContent = total;
+      input.push('=');
     }
     // if a number is clicked
     else if (btnVal !== NaN && numbers.indexOf(parseInt(btnVal)) !== -1) {
@@ -75,6 +76,16 @@ for (var i = 0; i < buttons.length; i++) {
     }
     // if an operator is clicked
     else if (operators.indexOf(btnVal) !== -1) {
+      // check if last button clicked was '='
+      if (input[input.length-1] === '=') {
+        // change input to the last evaluated result
+        input = [];
+        input.push(result.textContent);
+        // have calculation div reflect this new input
+        calculation.textContent = result.textContent;
+        // clear the result
+        result.textContent = '';
+      }
       update(btnVal);
       calculation.textContent = total;
     }
@@ -87,7 +98,10 @@ for (var i = 0; i < buttons.length; i++) {
 // but what if the operation button is clicked before the number is clicked?
   // e.g. +/- 20 is the same as 20 +/-
   // but % 80 doesn't work, 80 % does
-  
-// change divide and multiply to / and * when evaluating instead?
 
-// change display css on calculation & result so they're in fixed positions
+// make parentheses button instead of %?
+// when you use CE and change the number, it evaluates as if parentheses are around the first part of the expression
+
+// after = is clicked, replace calculation with new result and clear old result
+
+// change divide and multiply to / and * when evaluating instead?
