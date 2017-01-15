@@ -5,7 +5,8 @@ var result = document.getElementById('result');
 var input = [];
 var total;
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var operators = ["*", "/", "+", "-", "."];
+var coreOperators = ['*', '/', '+', '-'];
+var extendedOperators = ['*', '/', '+', '-', '.'];
 
 function removeTransition() {
   this.classList.remove('clicked');
@@ -75,7 +76,7 @@ for (var i = 0; i < buttons.length; i++) {
       calculation.textContent = total;
     }
     // if an operator is clicked
-    else if (operators.indexOf(btnVal) !== -1) {
+    else if (coreOperators.indexOf(btnVal) !== -1) {
       // check if last button clicked was '='
       if (input[input.length-1] === '=') {
         // change input to the last evaluated result
@@ -84,6 +85,16 @@ for (var i = 0; i < buttons.length; i++) {
         // have calculation div reflect this new input
         calculation.textContent = result.textContent;
         // clear the result
+        result.textContent = '';
+      }
+      update(btnVal);
+      calculation.textContent = total;
+    }
+    // if . was clicked
+    else if (btnVal === '.') {
+      // check if last button clicked was '='
+      if (input[input.length-1] === '=') {
+        input = [];
         result.textContent = '';
       }
       update(btnVal);
@@ -101,7 +112,5 @@ for (var i = 0; i < buttons.length; i++) {
 
 // make parentheses button instead of %?
 // when you use CE and change the number, it evaluates as if parentheses are around the first part of the expression
-
-// after = is clicked, replace calculation with new result and clear old result
 
 // change divide and multiply to / and * when evaluating instead?
