@@ -113,5 +113,9 @@ button {
     padding: 10px;
     position: absolute;
     bottom: 0; } }
+@media screen and (max-width: 920px) {
+  #result {
+    width: 312px;
+    overflow: hidden; } }
 
 /*# sourceMappingURL=style.css.map */

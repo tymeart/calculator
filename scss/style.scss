@@ -95,6 +95,8 @@ button {
   background-color: $transparent-black;
 }
 
+
+
 @media screen and (max-width: 650px) {
   .container {
     -webkit-box-orient: vertical;
@@ -140,4 +142,11 @@ button {
     bottom: 0;
   }
 
+}
+
+@media screen and (max-width: 920px) {
+  #result {
+    width: 312px;
+    overflow: hidden;
+  }
 }
