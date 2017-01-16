@@ -5,8 +5,7 @@ var result = document.getElementById('result');
 var input = [];
 var total;
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var coreOperators = ['*', '/', '+', '-'];
-var extendedOperators = ['*', '/', '+', '-', '.'];
+var operators = ['*', '/', '+', '-'];
 
 function removeTransition() {
   this.classList.remove('clicked');
@@ -76,7 +75,7 @@ for (var i = 0; i < buttons.length; i++) {
       calculation.textContent = total;
     }
     // if an operator is clicked
-    else if (coreOperators.indexOf(btnVal) !== -1) {
+    else if (operators.indexOf(btnVal) !== -1) {
       // check if last button clicked was '='
       if (input[input.length-1] === '=') {
         // change input to the last evaluated result
@@ -100,17 +99,25 @@ for (var i = 0; i < buttons.length; i++) {
       update(btnVal);
       calculation.textContent = total;
     }
-
+    // if % is clicked and last input was a number
+    else if (btnVal === 'percent' && typeof parseInt(input[input.length-1]) === 'number') {
+      for (var j = input.length-1; j > 0; j--) {
+        // splice the number after that operator and replace it with percentage
+        if (operators.indexOf(input[j]) !== -1) {
+          var lastNum = input.slice(j+1).join('');
+          input.splice(j+1, input.length-j, parseFloat(lastNum)/100);
+        }
+      }
+      total = input.join('');
+      calculation.textContent = total;
+    }
   });
 
 }
 
+// if number is clicked after =, then have to clear everything
 
 // but what if the operation button is clicked before the number is clicked?
   // e.g. +/- 20 is the same as 20 +/-
-  // but % 80 doesn't work, 80 % does
-
-// make parentheses button instead of %?
-// when you use CE and change the number, it evaluates as if parentheses are around the first part of the expression
 
 // change divide and multiply to / and * when evaluating instead?
