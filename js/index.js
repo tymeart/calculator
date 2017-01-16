@@ -111,6 +111,18 @@ for (var i = 0; i < buttons.length; i++) {
       total = input.join('');
       calculation.textContent = total;
     }
+    //if +/- is clicked
+    else if (btnVal === 'plus-min' && typeof parseInt(input[input.length-1]) === 'number') {
+      for (var j = input.length-1; j > 0; j--) {
+        if (operators.indexOf(input[j]) !== -1) {
+          var lastNum = input.slice(j+1).join('');
+          input.splice(j+1, input.length-j, parseFloat(lastNum) * -1);
+        }
+      }
+      total = input.join('');
+      calculation.textContent = total;
+    }
+
   });
 
 }
