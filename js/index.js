@@ -71,6 +71,11 @@ for (var i = 0; i < buttons.length; i++) {
     }
     // if a number is clicked
     else if (btnVal !== NaN && numbers.indexOf(parseInt(btnVal)) !== -1) {
+      // clear everything if previous entry was =
+      if (input[input.length-1] === '=') {
+        input = [];
+        result.textContent = '';
+      }
       update(btnVal);
       calculation.textContent = total;
     }
@@ -126,10 +131,5 @@ for (var i = 0; i < buttons.length; i++) {
   });
 
 }
-
-// if number is clicked after =, then have to clear everything
-
-// but what if the operation button is clicked before the number is clicked?
-  // e.g. +/- 20 is the same as 20 +/-
 
 // change divide and multiply to / and * when evaluating instead?
