@@ -58,6 +58,9 @@ for (var i = 0; i < buttons.length; i++) {
     }
     // if CE is clicked
     else if (btnVal === 'ce') {
+      if (input[input.length-1] === '=') {
+        input.pop();
+      }
       input.pop();
       total = input.join('');
       calculation.textContent = total;
