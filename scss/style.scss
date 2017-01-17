@@ -13,14 +13,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.keypad-container {
-  width: 50vw;
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -29,12 +25,21 @@ body {
           align-items: center;
 }
 
+.keypad-container {
+  height: 60vh;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  padding-top: 30px;
+}
+
 .display {
   background: $transparent-black;
   color: $dull-light-green;
   font-family: sans-serif;
-  width: 50vw;
-  height: 100vh;
+  width: 400px;
+  height: 25vh;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -51,14 +56,20 @@ body {
 }
 
 #calculation {
-  padding: 30px;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  position: absolute;
+  top: 15px;
+  left: 30px;
 }
 
 #result {
-  padding: 20px;
   font-size: 2.5em;
   text-align: right;
+  position: absolute;
+  bottom: 7px;
+  right: 30px;
+  width: 315px;
+  overflow: hidden;
 }
 
 .row {
@@ -74,12 +85,12 @@ button {
 
 .btn {
   color: $light-green;
-  font-size: 2.5em;
+  font-size: 2.8em;
   font-family: sans-serif;
   text-align: center;
   width: 60px;
   padding: 5px;
-  margin: 8px;
+  margin: 10px 20px;
   -webkit-transition: background-color 0.4s;
   transition: background-color 0.4s;
 
@@ -99,55 +110,13 @@ button {
 
 
 @media screen and (max-width: 650px) {
-  .container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-
-  .keypad-container {
-    width: 100vw;
-    height: 75vh;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-    padding-top: 30px;
-  }
-
   .btn {
-    font-size: 2.8em;
     margin: 12px;
   }
 
   .display {
     width: 100vw;
-    height: 25vh;
     position: relative;
   }
 
-  #calculation {
-    font-size: 1.2em;
-    padding: 10px;
-    position: absolute;
-    top: 5px;
-    left: 50px;
-  }
-
-  #result {
-    padding: 10px;
-    position: absolute;
-    bottom: 7px;
-  }
-
-}
-
-@media screen and (max-width: 920px) {
-  #result {
-    width: 312px;
-    overflow: hidden;
-  }
 }
