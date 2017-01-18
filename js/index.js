@@ -108,7 +108,7 @@ for (var i = 0; i < buttons.length; i++) {
       calculation.textContent = total;
     }
     // if % is clicked and last input was a number
-    else if (btnVal === 'percent' && typeof parseInt(input[input.length-1]) === 'number') {
+    else if (btnVal === 'percent' && numbers.indexOf(parseInt(input[input.length-1])) !== -1) {
       for (var j = input.length-1; j > 0; j--) {
         // splice the number after that operator and replace it with percentage
         if (operators.indexOf(input[j]) !== -1) {
@@ -120,7 +120,7 @@ for (var i = 0; i < buttons.length; i++) {
       calculation.textContent = total;
     }
     //if +/- is clicked
-    else if (btnVal === 'plus-min' && typeof parseInt(input[input.length-1]) === 'number') {
+    else if (btnVal === 'plus-min' && numbers.indexOf(parseInt(input[input.length-1])) !== -1) {
       for (var j = input.length-1; j > 0; j--) {
         if (operators.indexOf(input[j]) !== -1) {
           var lastNum = input.slice(j+1).join('');
@@ -134,5 +134,7 @@ for (var i = 0; i < buttons.length; i++) {
   });
 
 }
+
+// clicking % or +/- before any number displays NaN
 
 // change divide and multiply to / and * when evaluating instead?
