@@ -95,7 +95,8 @@ button {
     margin: 7px; }
 
   .keypad-container {
-    border: 0; }
+    border: 0;
+    padding: 20px; }
 
   .display {
     width: 100vw;
